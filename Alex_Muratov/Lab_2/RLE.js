@@ -17,4 +17,8 @@ function RLE (input) {
     }
     return result;
 }
-console.log(RLE("AABCCABG"));
+const test = ["","a","abcde","aaaaa","aabbbccccddddd"]
+
+for (let each of test){
+    console.log(RLE(each));
+}
