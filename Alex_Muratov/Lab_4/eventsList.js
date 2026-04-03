@@ -2,20 +2,26 @@ import {eventsListFiller} from "./eventsListFiller.js"
 import {Event} from "./event.js"
 import {monthNames} from "./constants.js";
 
+const newEventsList = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (!localStorage.getItem("EventsList")){
-
-        const newEventsList = [];
+    if (!localStorage.getItem("EventsList") || localStorage.getItem("EventsList") !== "undefined"){
         eventsListFiller(20,newEventsList)
-
         localStorage.setItem("EventsList",JSON.stringify(newEventsList));
-
     }
 })
 
 const parsedList = JSON.parse(localStorage.getItem("EventsList"))
-const restoredEvents = parsedList.map((data)=>new Event(data.id,data.title,data.participants,data.date));
+export const restoredEvents = parsedList.map((data)=>new Event(data.id,data.title,data.participants,new Date(data.date)));
+
+export function parseDateToString(date) {
+    console.log(typeof date);
+    const year = date.getFullYear();
+    const month = monthNames[date.getMonth()];
+    const day = String(date.getDate()).padStart(2,"0");
+    return (day+' '+month+' '+year);
+}
+
 
 
 function sortByDate(events) {
@@ -28,7 +34,7 @@ function groupByDate(events) {
 
     for (let event of sortedEvents){
 
-        const curDate = event.date;
+        const curDate = parseDateToString(event.date);
 
         if (!dateGroup[curDate]){
             dateGroup[curDate] = [];
@@ -63,10 +69,12 @@ function getParticipantList(events) {
     return participantList;
 }
 
-function groupByMonths(events,month){
+function getEventsByMonths(events,month){
     return events.filter((event) =>{
+        console.log(event.date);
+
         const eventDate = new Date(event.date);
-        console.log(monthNames[eventDate.getMonth()])
+        console.log(eventDate);
         return  month === monthNames[eventDate.getMonth()]
     })
 }
@@ -75,13 +83,14 @@ function getPersonEvents(events,person){
     return events.filter((event) => event.participants.includes(person))
 }
 
-console.log(groupByMonths(restoredEvents,"Апрель"))
+console.log("Вывожу мероприятия Апреля",getEventsByMonths(restoredEvents,"Апрель"))
 
-console.log(getParticipantList(parsedList));
+console.log("Вывожу список всех участников",getParticipantList(parsedList));
 
-console.log(getPersonEvents(parsedList,"Андрей Васильев"));
+console.log("Вывожу мероприятия Андрея Васильева",getPersonEvents(parsedList,"Андрей Васильев"));
 
-console.log(groupByDate(parsedList));
+console.log("Вывожу мероприятия сгруппированные по дате",groupByDate(restoredEvents));
 
-console.log(groupByParticipantsCount(restoredEvents));
+console.log("Вывожу мероприятия сгруппированные по количеству участников",groupByParticipantsCount(restoredEvents));
+
 

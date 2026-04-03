@@ -1,23 +1,81 @@
 body{
     background-color: #B7B1B1;
     position: relative;
+    display: flex;
+    justify-content: center;
+    font-family: "Open Sans", sans-serif;
 }
 .logo{
-    position: absolute
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.event-card{
-    width: calc((100% - 20px)/3);
-    height: 400px;
-    background-color: #F9F7ED;
-    border-radius: 34px;
-    box-shadow: 2px 2px 4px rgba(0,0,0,0.25%);
-
-}
 
 .events-container{
-    width: 1080px;
+    width: 1920px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
 }
+
+.event-card{
+    width: calc((100% - 40px)/3);
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+    height: 400px;
+    background-color: #F9F7ED;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 34px;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.25%);
+}
+
+.event-card-body{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    justify-content: space-between;
+    gap:20px;
+}
+
+.title{
+    font-size: 18px;
+
+}
+
+.event-card-head{
+    display: flex;
+    justify-content: space-between;
+}
+
+.event-date{
+    color: #615D5D;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.event-name{
+    font-weight: bold;
+    font-size: 18px;
+    overflow-wrap: break-word;
+}
+
+.participants-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px 20px;
+    max-height: 150px;
+    overflow: auto;
+}
+.participants-section{
+    display: flex;
+    gap:20px;
+    flex-direction: column;
+
+
+}
+

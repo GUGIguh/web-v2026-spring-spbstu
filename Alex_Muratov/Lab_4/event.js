@@ -28,7 +28,7 @@
 
 export class Event {
     id
-    tittle
+    title
     participants
     date
 
@@ -36,9 +36,9 @@ export class Event {
         return this.participants.length;
     }
 
-    constructor(id,tittle,participants,date) {
+    constructor(id,title,participants,date) {
         this.id = id;
-        this.tittle = tittle;
+        this.title = title;
         this.participants = participants ;
         this.date = date;
     }
@@ -55,7 +55,7 @@ export class Event {
     showEvent() {
         return {
             id: this.id,
-            title: this.tittle,
+            title: this.title,
             participants: this.participants,
             date: this.date,
         }
