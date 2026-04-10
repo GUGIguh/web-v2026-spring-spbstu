@@ -1,16 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import Board from "./Board";
-
-// const [boardState,setBoardState] = useState(new Array(9).fill(null));
-
-
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import GamePage from "./Pages/GamePage";
+import MenuPage from "./Pages/MenuPage";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 const App = () => {
     return (
-        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
-            <Board />
-        </div>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<MenuPage/>} />
+                <Route path="/menu" element={<MenuPage/>}/>
+                <Route path="/game" element={<GamePage/>} />
+                <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+        </BrowserRouter>
     );
 };
 
-export default App; // Экспортируем, чтобы использовать в index.tsx
+export default App;
