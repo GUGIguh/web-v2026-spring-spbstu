@@ -43,8 +43,11 @@ export default function Board({ gridSize, width, boardState, updateBoard, mode}:
         }
 
         const handleClick = (e: MouseEvent) => {
-            if (mode === "CPU" && isCpuNext) {
+            if (mode === "cpu" && isCpuNext) {
                 return;
+            }
+            if (mode === "cpu" && !isCpuNext) {
+                setIsCpuNext(!isCpuNext);
             }
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
@@ -55,7 +58,6 @@ export default function Board({ gridSize, width, boardState, updateBoard, mode}:
             const curIndex = cellY * gridSize + cellX;
 
             updateBoard(curIndex);
-            setIsCpuNext(!isCpuNext);
         };
 
         canvas.addEventListener("click", handleClick);
@@ -64,7 +66,7 @@ export default function Board({ gridSize, width, boardState, updateBoard, mode}:
 
     return (
         <canvas
-            className="rounded-lg cursor-pointer touch-none"
+            className="rounded-lg cursor-pointer"
             ref={canvasRef}
             width={width}
             height={width}

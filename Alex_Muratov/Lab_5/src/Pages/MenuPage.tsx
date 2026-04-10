@@ -12,11 +12,9 @@ export default function MenuPage() {
     return (
         <div className="min-h-screen bg-neutral-50 flex items-center justify-center font-sans text-neutral-800">
             <div className="w-full max-w-sm p-8 bg-white shadow-sm border border-neutral-200 rounded-2xl">
-
                 <h1 className="text-3xl font-light text-center mb-10 tracking-tight">
                     Tic Tac Toe
                 </h1>
-
                 <div className="mb-8">
                     <p className="text-xs uppercase tracking-widest text-neutral-400 mb-3 font-semibold">
                         Режим игры
