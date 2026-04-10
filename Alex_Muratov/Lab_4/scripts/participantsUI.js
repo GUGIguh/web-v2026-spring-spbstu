@@ -12,19 +12,20 @@ function addParticipant() {
     getList()
         .then(res => {
             const event = res.find(event => event.id === +window.currentCardId);
-            console.log(event);
             const validationResult =  participantValidation(firstName, secondName, res, event);
             if (!validationResult.correct){
                 setMessage(validationResult.message,"messagePartSpan",validationResult.color);
+                throw(new Error(validationResult.message));
             }
             else {
                 setMessage(validationResult.message, "messagePartSpan",validationResult.color);
                 event.addParticipant(newParticipant);
                 renderEventsCard(res);
+
                 return setList(res);
             }
         })
-        .catch(error => console.log(error));
+        .catch(error => console.log(error.message));
 }
 
 function deleteParticipant(button){
