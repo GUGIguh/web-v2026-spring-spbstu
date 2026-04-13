@@ -30,4 +30,16 @@
 <img width="1327" height="829" alt="image" src="https://github.com/user-attachments/assets/7dfac555-46af-4ea2-8e74-9b5b37406b0a" />
 <img width="2087" height="1111" alt="image" src="https://github.com/user-attachments/assets/5c8a9fe7-31fe-4d45-b14f-fff0b9d8b1be" />
 
+### [Task-5]
+Создать игру “Крестики нолики” Классическая игра "Крестики-нолики" с возможностью игры против компьютера или другого игрока. Функциональность:
+заставка (всё рабочее поле);
+экраны завершения игры. 68 Примечание: Нельзя использовать библиотеки типа Phaser или др. можно не игровые. Использование canvas, как плюс.
+
+<img width="2130" height="1278" alt="image" src="https://github.com/user-attachments/assets/a0bd6760-49eb-4b0d-9a5e-59388940470c" />
+<img width="2297" height="1289" alt="image" src="https://github.com/user-attachments/assets/742ca7d3-4d14-48b8-8272-b169a28ebecf" />
+<img width="2200" height="1285" alt="image" src="https://github.com/user-attachments/assets/b09cf025-f49a-44b2-bd88-4e158155f770" />
+<img width="2323" height="1283" alt="image" src="https://github.com/user-attachments/assets/5fbb7e89-8cdd-426d-8150-f0c1f303620a" />
+
+
+
 
