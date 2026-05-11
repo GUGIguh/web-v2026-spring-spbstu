@@ -1,0 +1,1 @@
+export type ButtonStyle = "blueFilled" | "pinkField" | "nonFilled" | "pinkDisabled" | "blueDisabled"

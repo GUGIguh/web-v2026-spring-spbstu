@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./fonts/Rubik-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url("./fonts/Rubik-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 400 900;
+    font-style: italic;
+}
+
+@theme {
+    --font-sans: "Rubik", sans-serif;
+}
+
+@layer components{
+
+    .segmented-control {
+        @apply flex relative w-fit;
+    }
+
+    .segmented-control::after {
+        content: '';
+        @apply absolute bottom-[2px] left-0 right-0 h-[2px] bg-gray-1;
+
+    }
+
+    .segmented-control button {
+        @apply relative z-10 px-5 py-2 text-sm font-medium transition-colors text-blue-def;
+    }
+
+    .segmented-control button:hover {
+        @apply text-blue-def;
+    }
+
+    .segmented-control button.active {
+        @apply text-black;
+    }
+
+    .segmented-control button::after {
+        content: '';
+        @apply absolute bottom-[0.5px] left-0 right-0 h-[4px];
+        border-radius: 4px;
+        background-color: transparent;
+    }
+
+    .segmented-control button.active::after {
+        background-color: var(--color-blue-def);
+    }
+
+    .btn-primary{
+        @apply flex justify-center items-center gap-2 py-3 px-8 w-fit h-12 box-border font-medium rounded-[8px] hover:cursor-pointer;
+    }
+
+    .counter-box{
+        @apply flex justify-center items-center  min-h-8 min-w-8 rounded-sm text-blue-def bg-gray-2 hover:text-white hover:bg-blue-def;
+    }
+
+    .range-slider {
+        @apply absolute w-full h-2 appearance-none bg-transparent pointer-events-none;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+        @apply pointer-events-auto appearance-none w-6 h-6 rounded-full shadow-md cursor-pointer;
+        background-color: var(--color-blue-def);
+        transition: background-color 0.2s;
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+        background-color: var(--color-blue-hov);
+    }
+
+    .range-slider::-moz-range-thumb {
+        @apply pointer-events-auto appearance-none w-6 h-6 rounded-full shadow-md cursor-pointer;
+        background-color: var(--color-blue-def);
+        transition: background-color 0.2s;
+        border: none;
+    }
+
+    .range-slider::-moz-range-thumb:hover {
+        background-color: var(--color-blue-hov);
+    }
+
+    .range-slider::-moz-range-track {
+        background: transparent;
+    }
+
+    .price-input::-webkit-inner-spin-button,
+    .price-input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .price-input {
+        -moz-appearance: textfield;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+}
+
+@theme{
+    --color-blue-def: #115EFB;
+    --color-blue-hov:#0C368A;
+    --color-blue-dis:#84ADFF;
+    --color-pink-def: #FF60C3;
+    --color-pink-hov:#CD3C96;
+    --color-pink-dis:#F2A2D4;
+    --color-default:#ffffff;
+    --color-default-hov:#F3F6FA;
+    --color-green:#00E398;
+    --color-yellow:#FFEC41;
+    --color-gray-1:#AEBDDB;
+    --color-gray-2:#E4E7EB;
+    --outline-blue:2px solid #84ADFF;
+    
+
+
+
+
+
+
+
+}
